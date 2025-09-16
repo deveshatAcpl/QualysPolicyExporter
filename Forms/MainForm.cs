@@ -41,24 +41,60 @@ namespace QualysPolicyExporter.Forms
         private void InitializeTray()
         {
             trayMenu = new ContextMenuStrip();
+            
+            // Apply modern styling to the context menu
+            trayMenu.BackColor = Color.White;
+            trayMenu.ForeColor = Color.FromArgb(32, 31, 30);
+            trayMenu.Font = new Font("Segoe UI", 9F, FontStyle.Regular);
+            trayMenu.ShowImageMargin = true;
+            trayMenu.RenderMode = ToolStripRenderMode.Professional;
 
-            trayMenu.Items.Add("Run Export Now", null, async (_, __) => await RunExportAsync());
-            trayMenu.Items.Add("Settings", null, (_, __) => new SettingsForm(this).ShowDialog());
+            // Add menu items with icons and better styling
+            var runItem = new ToolStripMenuItem("▶️ Run Export Now");
+            runItem.Click += async (_, __) => await RunExportAsync();
+            runItem.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
+            trayMenu.Items.Add(runItem);
+            
+            var settingsItem = new ToolStripMenuItem("⚙️ Settings");
+            settingsItem.Click += (_, __) => {
+                var settingsForm = new SettingsForm(this);
+                settingsForm.ShowDialog();
+            };
+            trayMenu.Items.Add(settingsItem);
+            
+            var aboutItem = new ToolStripMenuItem("ℹ️ About");
+            aboutItem.Click += (_, __) => ShowAboutDialog();
+            trayMenu.Items.Add(aboutItem);
+            
             trayMenu.Items.Add(new ToolStripSeparator());
-            statusItem = new ToolStripMenuItem("Status: Idle");
+            
+            statusItem = new ToolStripMenuItem("📊 Status: Idle");
+            statusItem.Enabled = false;
+            statusItem.ForeColor = Color.FromArgb(0, 120, 215);
             trayMenu.Items.Add(statusItem);
+            
             trayMenu.Items.Add(new ToolStripSeparator());
-            trayMenu.Items.Add("Exit", null, (_, __) => ExitApp());
+            
+            var exitItem = new ToolStripMenuItem("❌ Exit");
+            exitItem.Click += (_, __) => ExitApp();
+            exitItem.ForeColor = Color.FromArgb(196, 43, 28);
+            trayMenu.Items.Add(exitItem);
 
             trayIcon = new NotifyIcon
             {
-                Text = "Qualys Policy Exporter",
+                Text = "Qualys Policy Exporter - Click for menu",
                 Icon = new Icon("Assets/tray_icon.ico"),
                 ContextMenuStrip = trayMenu,
                 Visible = true
             };
 
             trayIcon.DoubleClick += async (_, __) => await RunExportAsync();
+            
+            // Add balloon tip for modern notification
+            trayIcon.BalloonTipTitle = "Qualys Policy Exporter";
+            trayIcon.BalloonTipText = "Application is running in the background";
+            trayIcon.BalloonTipIcon = ToolTipIcon.Info;
+            trayIcon.ShowBalloonTip(3000);
         }
 
         public void RestartScheduler()
@@ -66,6 +102,103 @@ namespace QualysPolicyExporter.Forms
             exportTimer?.Stop();
             lastRun = DateTime.MinValue;
             ScheduleAutoExport();
+        }
+        
+        private void UpdateStatus(string message, StatusType type = StatusType.Info)
+        {
+            string icon = type switch
+            {
+                StatusType.Success => "✅",
+                StatusType.Error => "❌",
+                StatusType.Warning => "⚠️",
+                StatusType.InProgress => "🔄",
+                _ => "📊"
+            };
+            
+            Color color = type switch
+            {
+                StatusType.Success => Color.FromArgb(40, 167, 69),  // Green
+                StatusType.Error => Color.FromArgb(220, 53, 69),    // Red
+                StatusType.Warning => Color.FromArgb(255, 193, 7),  // Amber
+                StatusType.InProgress => Color.FromArgb(255, 193, 7), // Amber
+                _ => Color.FromArgb(0, 120, 215)  // Blue
+            };
+            
+            statusItem.Text = $"{icon} Status: {message}";
+            statusItem.ForeColor = color;
+        }
+        
+        private void ShowAboutDialog()
+        {
+            var aboutForm = new Form
+            {
+                Text = "About Qualys Policy Exporter",
+                Size = new Size(450, 300),
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                MaximizeBox = false,
+                MinimizeBox = false,
+                StartPosition = FormStartPosition.CenterParent,
+                BackColor = Color.FromArgb(250, 250, 250),
+                Font = new Font("Segoe UI", 9F, FontStyle.Regular)
+            };
+
+            var titleLabel = new Label
+            {
+                Text = "Qualys Policy Exporter",
+                Font = new Font("Segoe UI", 16F, FontStyle.Bold),
+                ForeColor = Color.FromArgb(0, 120, 215),
+                AutoSize = true,
+                Location = new Point(30, 30)
+            };
+
+            var versionLabel = new Label
+            {
+                Text = "Version 1.0.1",
+                Font = new Font("Segoe UI", 10F, FontStyle.Regular),
+                ForeColor = Color.FromArgb(32, 31, 30),
+                AutoSize = true,
+                Location = new Point(30, 65)
+            };
+
+            var descriptionLabel = new Label
+            {
+                Text = "A modern tool for exporting Qualys policy compliance data.\n\n" +
+                       "Features:\n" +
+                       "• Automated scheduled exports\n" +
+                       "• Configurable proxy support\n" +
+                       "• Technology and policy filtering\n" +
+                       "• Background operation with system tray integration",
+                Font = new Font("Segoe UI", 9F, FontStyle.Regular),
+                ForeColor = Color.FromArgb(32, 31, 30),
+                Size = new Size(380, 120),
+                Location = new Point(30, 95)
+            };
+
+            var okButton = new Button
+            {
+                Text = "OK",
+                Size = new Size(80, 35),
+                Location = new Point(340, 220),
+                BackColor = Color.FromArgb(0, 120, 215),
+                ForeColor = Color.White,
+                FlatStyle = FlatStyle.Flat,
+                Font = new Font("Segoe UI", 9F, FontStyle.Regular),
+                DialogResult = DialogResult.OK
+            };
+            okButton.FlatAppearance.BorderSize = 0;
+
+            aboutForm.Controls.AddRange(new Control[] { titleLabel, versionLabel, descriptionLabel, okButton });
+            aboutForm.AcceptButton = okButton;
+            aboutForm.ShowDialog();
+        }
+
+        private enum StatusType
+        {
+            Info,
+            Success,
+            Error,
+            Warning,
+            InProgress
         }
 
         //private void ScheduleAutoExport()
@@ -145,7 +278,7 @@ namespace QualysPolicyExporter.Forms
             if (isExportRunning) return;
 
             isExportRunning = true;
-            statusItem.Text = "Status: Exporting...";
+            UpdateStatus("Exporting...", StatusType.InProgress);
             try
             {
                 System.Diagnostics.Debug.WriteLine("[INFO]Starting...");
@@ -160,13 +293,13 @@ namespace QualysPolicyExporter.Forms
                 );
 
                 lastRun = DateTime.Now;
-                trayIcon.ShowBalloonTip(3000, "Export Complete", $"CSV saved at: {filePath}", ToolTipIcon.Info);
-                statusItem.Text = $"Status: Last export at {lastRun:T}";
+                trayIcon.ShowBalloonTip(3000, "✅ Export Complete", $"CSV saved at: {filePath}", ToolTipIcon.Info);
+                UpdateStatus($"Last export at {lastRun:T}", StatusType.Success);
             }
             catch (Exception ex)
             {
-                trayIcon.ShowBalloonTip(3000, "Export Failed", ex.Message, ToolTipIcon.Error);
-                statusItem.Text = $"Status: Failed at {DateTime.Now:T}";
+                trayIcon.ShowBalloonTip(3000, "❌ Export Failed", ex.Message, ToolTipIcon.Error);
+                UpdateStatus($"Failed at {DateTime.Now:T}", StatusType.Error);
 
                 try
                 {
