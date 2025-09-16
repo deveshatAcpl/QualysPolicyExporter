@@ -12,6 +12,10 @@ namespace QualysPolicyExporter.Forms
             _mainForm = mainForm;
             InitializeComponent();
             LoadSettings();
+            
+            // Set up dialog properties
+            CancelButton = btnCancel;
+            AcceptButton = btnSave;
         }
 
         private void LoadSettings()
@@ -52,29 +56,52 @@ namespace QualysPolicyExporter.Forms
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            // Validate required fields
+            if (string.IsNullOrWhiteSpace(txtUsername.Text))
+            {
+                MessageBox.Show("Please enter a username.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtUsername.Focus();
+                return;
+            }
+            
+            if (string.IsNullOrWhiteSpace(txtPassword.Text))
+            {
+                MessageBox.Show("Please enter a password.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtPassword.Focus();
+                return;
+            }
+            
+            if (string.IsNullOrWhiteSpace(txtExportPath.Text))
+            {
+                MessageBox.Show("Please select an export path.", "Validation Error", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtExportPath.Focus();
+                return;
+            }
+
+            // Save settings
             Properties.Settings.Default.Username = txtUsername.Text;
             Properties.Settings.Default.Password = txtPassword.Text;
             Properties.Settings.Default.ExportPath = txtExportPath.Text;
-            //Properties.Settings.Default.FilterPassedToFailedOnly = chkFilter.Checked;
             Properties.Settings.Default.ExportIntervalDays = (int)numIntervalDays.Value;
             Properties.Settings.Default.ExportTime = timePicker.Value.TimeOfDay;
             Properties.Settings.Default.EnableProxy = chkEnableProxy.Checked;
             Properties.Settings.Default.ProxyUrl = txtProxyUrl.Text;
-
-            // Save custom policy IDs
             Properties.Settings.Default.SelectedPolicyIds = txtPolicyIds.Text.Trim();
-
             Properties.Settings.Default.TechnologyIds = txtTechnologyIds.Text.Trim();
             Properties.Settings.Default.TechIdMode = rbIncludeTechIds.Checked ? "Include" : "Exclude";
             Properties.Settings.Default.DaysBeforeToday = (int)numDaysBeforeToday.Value;
 
-
             Properties.Settings.Default.Save();
-
 
             _mainForm.RestartScheduler();
 
-            MessageBox.Show("Settings saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Settings saved successfully.", "Success", 
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+            DialogResult = DialogResult.OK;
             Close();
         }
     }

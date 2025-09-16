@@ -77,31 +77,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DeveshKrishnaPandey\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter.csproj",
+      "projectUniqueName": "/home/runner/work/QualysPolicyExporter/QualysPolicyExporter/QualysPolicyExporter.csproj",
       "projectName": "QualysPolicyExporter",
-      "projectPath": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter.csproj",
-      "packagesPath": "C:\\Users\\DeveshKrishnaPandey\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\obj\\",
+      "projectPath": "/home/runner/work/QualysPolicyExporter/QualysPolicyExporter/QualysPolicyExporter.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/home/runner/work/QualysPolicyExporter/QualysPolicyExporter/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\DeveshKrishnaPandey\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -114,13 +107,7 @@
         "warnAsError": [
           "NU1605"
         ]
-      },
-      "restoreAuditProperties": {
-        "enableAudit": "true",
-        "auditLevel": "low",
-        "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.300"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -149,12 +136,9 @@
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
-          },
-          "Microsoft.WindowsDesktop.App.WindowsForms": {
-            "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.119/PortableRuntimeIdentifierGraph.json"
       }
     }
   },
