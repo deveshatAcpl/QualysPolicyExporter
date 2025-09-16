@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "dgSpecHash": "tnIEUN5EJ4o=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DeveshKrishnaPandey\\.nuget\\packages\\credentialmanagement\\1.0.2\\credentialmanagement.1.0.2.nupkg.sha512",
+    "C:\\Users\\DeveshKrishnaPandey\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'CredentialManagement 1.0.2' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\DeveshKrishnaPandey\\Downloads\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter\\QualysPolicyExporter.csproj",
+      "libraryId": "CredentialManagement",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
+}

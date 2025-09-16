@@ -1,0 +1,9 @@
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.exe
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\Assets\tray_icon.ico
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.dll
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.deps.json
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.runtimeconfig.json
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.dll.config
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.pdb
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\CredentialManagement.dll
+C:\Users\DeveshKrishnaPandey\Downloads\QualysPolicyExporter\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\Newtonsoft.Json.dll

@@ -1,0 +1,9 @@
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.exe
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\Assets\tray_icon.ico
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.dll
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.deps.json
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.runtimeconfig.json
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.dll.config
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\QualysPolicyExporter.pdb
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\CredentialManagement.dll
+C:\Users\Devesh\source\repos\QualysPolicyExporter\QualysPolicyExporter\bin\Release\net8.0-windows\publish\Newtonsoft.Json.dll

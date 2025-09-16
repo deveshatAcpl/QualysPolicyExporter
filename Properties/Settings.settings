@@ -1,0 +1,42 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QualysPolicyExporter.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sbcar8da</Value>
+    </Setting>
+    <Setting Name="Password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SB!C@rd@2025</Value>
+    </Setting>
+    <Setting Name="ExportPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\QualysPolicies</Value>
+    </Setting>
+    <Setting Name="FilterPassedToFailedOnly" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ExportIntervalDays" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="ExportTime" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:00</Value>
+    </Setting>
+    <Setting Name="EnableProxy" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ProxyUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SelectedPolicyIds" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TechnologyIds" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TechIdMode" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Exclude</Value>
+    </Setting>
+    <Setting Name="DaysBeforeToday" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
